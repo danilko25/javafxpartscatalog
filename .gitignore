@@ -1,3 +1,7 @@
+
+src/main/resources/database.properties
+
+
 target/
 !.mvn/wrapper/maven-wrapper.jar
 !**/src/main/**/target/
@@ -8,6 +12,7 @@ target/
 .idea/jarRepositories.xml
 .idea/compiler.xml
 .idea/libraries/
+
 *.iws
 *.iml
 *.ipr
