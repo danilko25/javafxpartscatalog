@@ -13,7 +13,7 @@ public class DataBaseConfig {
 
     private static Properties conf;
 
-    {
+    static {
         try {
             conf = PropertiesLoader.loadProperties();
         } catch (IOException e) {
@@ -32,6 +32,5 @@ public class DataBaseConfig {
         } catch (ClassNotFoundException | SQLException e) {
             throw new RuntimeException(e);
         }
-
     }
 }
