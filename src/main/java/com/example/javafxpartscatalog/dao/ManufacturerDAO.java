@@ -7,6 +7,7 @@ import com.example.javafxpartscatalog.models.Manufacturer;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 public class ManufacturerDAO implements IManufacturerDAO {
 
@@ -57,5 +58,18 @@ public class ManufacturerDAO implements IManufacturerDAO {
         }
     }
 
+    @Override
+    public Optional<Manufacturer> getManufacturerById(int id) {
+        return Optional.empty();
+    }
 
+    @Override
+    public void updateManufacturerById(int id, Manufacturer manufacturer) {
+
+    }
+
+    @Override
+    public void deleteById(int id) {
+
+    }
 }

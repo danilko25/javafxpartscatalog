@@ -32,22 +32,32 @@ public class MarksController implements Initializable {
         List<Manufacturer> manufacturers = manufacturerDAO.getAllManufacturers();
         Node[] nodes = new Node[manufacturers.size()];
         String manufacturerName;
+        Node currentNode;
 
         for (int i = 0; i<nodes.length; i++){
             try {
+                currentNode = nodes[i];
                 manufacturerName = manufacturers.get(i).getName();
-                nodes[i] = FXMLLoader.load(getClass().getResource("/com/example/javafxpartscatalog/manufacturer_item.fxml"));
+                currentNode = FXMLLoader.load(getClass().getResource("/com/example/javafxpartscatalog/manufacturer_item.fxml"));
+                Node finalCurrentNode = currentNode;
+                currentNode.setOnMouseEntered(mouseEvent -> {
+                    finalCurrentNode.setStyle("-fx-background-color: #CFCFCF");
+                });
+
+                currentNode.setOnMouseExited(mouseEvent -> {
+                    finalCurrentNode.setStyle("-fx-background-color: #FFFFFF");
+                });
                 String imagePath = "src/main/resources/markIcons/" + manufacturerName + "-Logo.png";
                 File file = new File(imagePath);
                 Image image = new Image(file.toURI().toString());
-                ImageView imageView = (ImageView) ((BorderPane)((VBox) nodes[i]).getChildren().get(0)).getCenter();
+                ImageView imageView = (ImageView) ((BorderPane)((VBox) currentNode).getChildren().get(0)).getCenter();
                 imageView.setImage(image);
-                Text text = (Text) ((VBox)nodes[i]).getChildren().get(1);
+                Text text = (Text) ((VBox)currentNode).getChildren().get(1);
                 text.setText(manufacturerName);
             } catch (IOException e) {
                 throw new RuntimeException(e);
             }
-            flexItems.getChildren().add(nodes[i]);
+            flexItems.getChildren().add(currentNode);
         }
     }
 }
