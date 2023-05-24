@@ -17,12 +17,6 @@ public class HelloApplication extends Application {
         stage.setTitle("Parts Catalog");
         stage.setScene(new Scene(root));
         stage.show();
-//        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("root.fxml"));
-//        Scene scene = new Scene(fxmlLoader.load());
-//        scene.getStylesheets().add(0, "style.css");
-//        stage.setTitle("Parts Catalog");
-//        stage.setScene(scene);
-//        stage.show();
     }
 
     public static void main(String[] args) {
