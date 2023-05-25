@@ -60,7 +60,24 @@ public class ManufacturerDAO implements IManufacturerDAO {
 
     @Override
     public Optional<Manufacturer> getManufacturerById(int id) {
-        return Optional.empty();
+        Connection connection = DataBaseConfig.getConnection();
+        Manufacturer result;
+        try {
+            PreparedStatement statement = connection.prepareStatement("SELECT * FROM manufacturer WHERE id = ?");
+            statement.setInt(1,id);
+            ResultSet rs = statement.executeQuery();
+            rs.next();
+            result = getManufacturerFromResultSet(rs);
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }finally {
+            try {
+                connection.close();
+            } catch (SQLException e) {
+                throw new RuntimeException(e);
+            }
+        }
+        return Optional.ofNullable(result);
     }
 
     @Override
@@ -71,5 +88,12 @@ public class ManufacturerDAO implements IManufacturerDAO {
     @Override
     public void deleteById(int id) {
 
+    }
+
+
+    private Manufacturer getManufacturerFromResultSet(ResultSet rs) throws SQLException {
+        int id = rs.getInt(1);
+        String name = rs.getString(2);
+        return new Manufacturer(id, name);
     }
 }

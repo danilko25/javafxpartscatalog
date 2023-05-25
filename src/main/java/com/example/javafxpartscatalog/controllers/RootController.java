@@ -27,6 +27,9 @@ public class RootController implements Initializable {
     @FXML
     private ImageView searchIcon;
 
+    @FXML
+    private Button homePage;
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
@@ -41,5 +44,13 @@ public class RootController implements Initializable {
         ImageView imageView = new ImageView(fileWithSearchIcon.toURI().toString());
         searchByCodeButton.setGraphic(imageView);
 
+        homePage.setOnMouseClicked(mouseEvent -> {
+            try {
+                ScrollPane pane = FXMLLoader.load(getClass().getResource("/com/example/javafxpartscatalog/marks.fxml"));
+                rootScene.setCenter(pane);
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+        });
     }
 }

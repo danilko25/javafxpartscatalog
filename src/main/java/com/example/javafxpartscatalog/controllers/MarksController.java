@@ -1,8 +1,11 @@
 package com.example.javafxpartscatalog.controllers;
 
 import com.example.javafxpartscatalog.dao.ManufacturerDAO;
+import com.example.javafxpartscatalog.dao.PartDAO;
 import com.example.javafxpartscatalog.dao.interfaces.IManufacturerDAO;
+import com.example.javafxpartscatalog.dao.interfaces.IPartDAO;
 import com.example.javafxpartscatalog.models.Manufacturer;
+import com.example.javafxpartscatalog.models.Part;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -26,6 +29,8 @@ public class MarksController implements Initializable {
     @FXML
     private FlowPane flexItems = null;
 
+    private RootController rootController = new RootController();
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         IManufacturerDAO manufacturerDAO = new ManufacturerDAO();
@@ -36,17 +41,9 @@ public class MarksController implements Initializable {
 
         for (int i = 0; i<nodes.length; i++){
             try {
-                currentNode = nodes[i];
                 manufacturerName = manufacturers.get(i).getName();
                 currentNode = FXMLLoader.load(getClass().getResource("/com/example/javafxpartscatalog/manufacturer_item.fxml"));
                 Node finalCurrentNode = currentNode;
-                currentNode.setOnMouseEntered(mouseEvent -> {
-                    finalCurrentNode.setStyle("-fx-background-color: #CFCFCF");
-                });
-
-                currentNode.setOnMouseExited(mouseEvent -> {
-                    finalCurrentNode.setStyle("-fx-background-color: #FFFFFF");
-                });
                 String imagePath = "src/main/resources/markIcons/" + manufacturerName + "-Logo.png";
                 File file = new File(imagePath);
                 Image image = new Image(file.toURI().toString());
@@ -54,10 +51,47 @@ public class MarksController implements Initializable {
                 imageView.setImage(image);
                 Text text = (Text) ((VBox)currentNode).getChildren().get(1);
                 text.setText(manufacturerName);
+
+                currentNode.setOnMouseEntered(mouseEvent -> {
+                    finalCurrentNode.setStyle("-fx-background-color: #CFCFCF");
+                });
+
+                currentNode.setOnMouseExited(mouseEvent -> {
+                    finalCurrentNode.setStyle("-fx-background-color: #FFFFFF");
+                });
+                currentNode.setOnMouseClicked(mouseEvent -> {
+                    try {
+                        getPartsListByMark(text.getText());
+                    } catch (IOException e) {
+                        throw new RuntimeException(e);
+                    }
+                });
             } catch (IOException e) {
                 throw new RuntimeException(e);
             }
             flexItems.getChildren().add(currentNode);
         }
+    }
+
+    void getPartsListByMark(String mark) throws IOException {
+        IPartDAO partDAO = new PartDAO();
+        flexItems.getChildren().clear();
+        List<Part> partsByMark = partDAO.getPartsByManufacturerName(mark);
+        Node[] partItems = new Node[partsByMark.size()];
+        Node currentNode;
+        for (int i = 0; i<partItems.length; i++){
+            PartItemController.partItem = partsByMark.get(i);
+            currentNode = FXMLLoader.load(getClass().getResource("/com/example/javafxpartscatalog/part_listitem.fxml"));
+            Node finalCurrentNode = currentNode;
+            currentNode.setOnMouseEntered(mouseEvent -> {
+                finalCurrentNode.setStyle("-fx-border-color: black; -fx-background-color: #CFCFCF");
+
+            });
+            currentNode.setOnMouseExited(mouseEvent -> {
+                finalCurrentNode.setStyle("-fx-border-color: grey; -fx-background-color: #FFFFFF");
+            });
+            flexItems.getChildren().add(currentNode);
+        }
+
     }
 }

@@ -12,6 +12,8 @@ public interface IPartDAO {
 
     Optional<Part> getPartById(int id);
 
+    List<Part> getPartsByManufacturerName(String name);
+
     List<Part> getPartByOriginalPartCode(String originalPartCode);
 
     void updateById(int id, Part part);
