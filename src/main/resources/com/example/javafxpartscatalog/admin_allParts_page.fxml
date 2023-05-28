@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.BorderPane?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.javafxpartscatalog.controllers.admin.AllPartsController">
+   <center>
+      <TableView fx:id="partsTable" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="200.0" prefWidth="570.0" BorderPane.alignment="CENTER">
+        <columns>
+          <TableColumn fx:id="id" prefWidth="30.0" text="id" />
+          <TableColumn fx:id="manufacturerId" prefWidth="75.0" text="manufact_id" />
+            <TableColumn fx:id="originalPartCode" prefWidth="130.0" text="orig_code" />
+            <TableColumn fx:id="name" prefWidth="130.0" text="name" />
+            <TableColumn fx:id="condition" prefWidth="120.0" text="condition" />
+            <TableColumn fx:id="price" prefWidth="112.79998779296875" text="price" />
+        </columns>
+         <BorderPane.margin>
+            <Insets />
+         </BorderPane.margin>
+      </TableView>
+   </center>
+</BorderPane>
