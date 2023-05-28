@@ -1,0 +1,15 @@
+.toggle-button{
+    -fx-background-color: #ededed;
+    -fx-border-radius: 0;
+    -fx-background-radius: 0;
+    -fx-font-weight: bold;
+    -fx-font-size: 14;
+}
+
+.toggle-button:hover{
+    -fx-background-color: #c3e4fa;
+}
+
+.toggle-button:selected{
+    -fx-background-color:  #58BBFF;
+}

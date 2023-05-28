@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.ToggleButton?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<BorderPane fx:id="rootScene" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="800.0" style="-fx-background-color: white;" stylesheets="@../../../style.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.javafxpartscatalog.controllers.admin.AdminRootController">
+   <left>
+      <VBox prefHeight="500.0" prefWidth="200.0" style="-fx-background-color: #ededed;" BorderPane.alignment="CENTER">
+         <children>
+            <Pane maxHeight="1.7976931348623157E308" maxWidth="-Infinity" prefHeight="94.0" prefWidth="200.0">
+               <children>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Панель адміністратора" x="11.0" y="55.0">
+                     <font>
+                        <Font name="System Bold" size="16.0" />
+                     </font>
+                  </Text>
+               </children>
+            </Pane>
+            <ToggleButton fx:id="allParts" maxHeight="-Infinity" maxWidth="1.7976931348623157E308" mnemonicParsing="false" prefHeight="50.0" selected="true" text="Список всіх запчастин">
+               <toggleGroup>
+                  <ToggleGroup fx:id="adminFunctions" />
+               </toggleGroup></ToggleButton>
+            <ToggleButton fx:id="partAdding" maxHeight="-Infinity" maxWidth="1.7976931348623157E308" mnemonicParsing="false" prefHeight="50.0" text="Додати запчастину" toggleGroup="$adminFunctions" />
+            <ToggleButton fx:id="updatePart" maxHeight="-Infinity" maxWidth="1.7976931348623157E308" mnemonicParsing="false" prefHeight="50.0" text="Змінити дані запчастини" toggleGroup="$adminFunctions" />
+            <ToggleButton fx:id="deletePart" maxHeight="-Infinity" maxWidth="1.7976931348623157E308" mnemonicParsing="false" prefHeight="50.0" text="Видалити запчастину" toggleGroup="$adminFunctions" />
+         </children>
+      </VBox>
+   </left>
+</BorderPane>
