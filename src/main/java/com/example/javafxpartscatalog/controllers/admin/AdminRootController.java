@@ -5,6 +5,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.control.ToggleButton;
+import javafx.scene.control.ToggleGroup;
 import javafx.scene.layout.BorderPane;
 
 import java.io.IOException;
@@ -15,16 +16,31 @@ import java.util.ResourceBundle;
 public class AdminRootController implements Initializable {
 
     @FXML
+    private ToggleGroup adminFunctions;
+
+    @FXML
+    private ToggleButton allManufacturers;
+
+    @FXML
     private ToggleButton allParts;
 
     @FXML
+    private ToggleButton deleteManufacturer;
+
+    @FXML
     private ToggleButton deletePart;
+
+    @FXML
+    private ToggleButton manufacturerAdding;
 
     @FXML
     private ToggleButton partAdding;
 
     @FXML
     private BorderPane rootScene;
+
+    @FXML
+    private ToggleButton updateManufacturer;
 
     @FXML
     private ToggleButton updatePart;
@@ -48,6 +64,12 @@ public class AdminRootController implements Initializable {
         deletePart.setOnMouseClicked(mouseEvent -> {
             rootScene.setCenter(getNodeFromFXML("/com/example/javafxpartscatalog/admin_partDeleting.fxml"));
         });
+
+        allManufacturers.setOnMouseClicked(mouseEvent -> {
+            rootScene.setCenter(getNodeFromFXML("/com/example/javafxpartscatalog/admin_allManufacturers_page.fxml"));
+        });
+
+
     }
 
     Node getNodeFromFXML(String path){
