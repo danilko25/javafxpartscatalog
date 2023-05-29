@@ -69,6 +69,10 @@ public class AdminRootController implements Initializable {
             rootScene.setCenter(getNodeFromFXML("/com/example/javafxpartscatalog/admin_allManufacturers_page.fxml"));
         });
 
+        manufacturerAdding.setOnMouseClicked(mouseEvent -> {
+            rootScene.setCenter(getNodeFromFXML("/com/example/javafxpartscatalog/admin_manufacturerAdding.fxml"));
+        });
+
 
     }
 

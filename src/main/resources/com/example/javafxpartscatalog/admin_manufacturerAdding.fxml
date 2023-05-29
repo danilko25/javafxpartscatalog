@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane fx:controller="com.example.javafxpartscatalog.controllers.admin.ManufacturerAddingController" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <BorderPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="500.0" prefWidth="600.0">
+         <center>
+            <VBox maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="89.0" prefWidth="230.0" BorderPane.alignment="CENTER">
+               <children>
+                  <VBox prefHeight="200.0" prefWidth="100.0">
+                     <children>
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Назва виробника:">
+                           <VBox.margin>
+                              <Insets bottom="5.0" />
+                           </VBox.margin></Text>
+                        <TextField fx:id="name" />
+                     </children>
+                  </VBox>
+                  <VBox alignment="CENTER" maxHeight="-Infinity" prefHeight="50.0" prefWidth="300.0">
+                     <children>
+                        <Button fx:id="addingButton" maxHeight="-Infinity" mnemonicParsing="false" prefWidth="100.0" text="Додати" />
+                     </children>
+                  </VBox>
+               </children>
+            </VBox>
+         </center>
+      </BorderPane>
+   </children>
+</AnchorPane>
