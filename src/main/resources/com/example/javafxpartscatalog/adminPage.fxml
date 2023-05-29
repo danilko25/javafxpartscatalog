@@ -31,7 +31,6 @@
             <ToggleButton fx:id="allManufacturers" maxHeight="-Infinity" maxWidth="1.7976931348623157E308" mnemonicParsing="false" prefHeight="50.0" text="Список всіх виробників" toggleGroup="$adminFunctions" />
             <ToggleButton fx:id="manufacturerAdding" maxHeight="-Infinity" maxWidth="1.7976931348623157E308" mnemonicParsing="false" prefHeight="50.0" text="Додати виробника" toggleGroup="$adminFunctions" />
             <ToggleButton fx:id="updateManufacturer" maxHeight="-Infinity" maxWidth="1.7976931348623157E308" mnemonicParsing="false" prefHeight="50.0" text="Змінити дані виробника" toggleGroup="$adminFunctions" />
-            <ToggleButton fx:id="deleteManufacturer" maxHeight="-Infinity" maxWidth="1.7976931348623157E308" mnemonicParsing="false" prefHeight="50.0" text="Видалити виробника" toggleGroup="$adminFunctions" />
          </children>
       </VBox>
    </left>

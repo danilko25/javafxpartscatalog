@@ -76,7 +76,6 @@ public class AdminRootController implements Initializable {
         updateManufacturer.setOnMouseClicked(mouseEvent -> {
             rootScene.setCenter(getNodeFromFXML("/com/example/javafxpartscatalog/admin_manufacturerUpdating.fxml"));
         });
-
     }
 
     Node getNodeFromFXML(String path){
