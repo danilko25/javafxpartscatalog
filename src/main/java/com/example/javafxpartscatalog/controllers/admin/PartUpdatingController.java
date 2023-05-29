@@ -60,12 +60,9 @@ public class PartUpdatingController implements Initializable {
         listOfParts.setItems(parts);
 
 
-            listOfParts.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<FXPart>() {
-                @Override
-                public void changed(ObservableValue<? extends FXPart> observableValue, FXPart fxPart, FXPart t1) {
-                    if(listOfParts.getSelectionModel().getSelectedItem()!=null){
-                        selectedManufacturerId.setText(String.valueOf(listOfParts.getSelectionModel().getSelectedItem().getId()));
-                    }
+            listOfParts.getSelectionModel().selectedItemProperty().addListener((observableValue, fxPart, t1) -> {
+                if(listOfParts.getSelectionModel().getSelectedItem()!=null){
+                    selectedManufacturerId.setText(String.valueOf(listOfParts.getSelectionModel().getSelectedItem().getId()));
                 }
             });
 
