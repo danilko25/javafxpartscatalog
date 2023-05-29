@@ -77,31 +77,40 @@ public class MarksController implements Initializable {
         IPartDAO partDAO = new PartDAO();
         flexItems.getChildren().clear();
         List<Part> partsByMark = partDAO.getPartsByManufacturerName(mark);
-        Node[] partItems = new Node[partsByMark.size()];
-        Node currentNode;
-        for (int i = 0; i<partItems.length; i++){
-            Part currentPart = partsByMark.get(i);
-            PartItemController.partItem = currentPart;
-            currentNode = FXMLLoader.load(getClass().getResource("/com/example/javafxpartscatalog/part_listitem.fxml"));
-            Node finalCurrentNode = currentNode;
-            currentNode.setOnMouseEntered(mouseEvent -> {
-                finalCurrentNode.setStyle("-fx-border-color: black; -fx-background-color: #CFCFCF");
 
-            });
-            currentNode.setOnMouseExited(mouseEvent -> {
-                finalCurrentNode.setStyle("-fx-border-color: grey; -fx-background-color: #FFFFFF");
-            });
-            currentNode.setOnMouseClicked(mouseEvent -> {
-                flexItems.getChildren().clear();
-                try {
-                    PartFullPageController.setPartForPage(currentPart);
-                    Node node = FXMLLoader.load(getClass().getResource("/com/example/javafxpartscatalog/partFullPage.fxml"));
-                    flexItems.getChildren().add(node);
-                } catch (IOException e) {
-                    throw new RuntimeException(e);
-                }
-            });
-            flexItems.getChildren().add(currentNode);
+        if (partsByMark.isEmpty()){
+            try {
+                flexItems.getChildren().add(FXMLLoader.load(getClass().getResource("/com/example/javafxpartscatalog/emptyList.fxml")));
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+        }else {
+            Node[] partItems = new Node[partsByMark.size()];
+            Node currentNode;
+            for (int i = 0; i<partItems.length; i++){
+                Part currentPart = partsByMark.get(i);
+                PartItemController.partItem = currentPart;
+                currentNode = FXMLLoader.load(getClass().getResource("/com/example/javafxpartscatalog/part_listitem.fxml"));
+                Node finalCurrentNode = currentNode;
+                currentNode.setOnMouseEntered(mouseEvent -> {
+                    finalCurrentNode.setStyle("-fx-border-color: black; -fx-background-color: #CFCFCF");
+
+                });
+                currentNode.setOnMouseExited(mouseEvent -> {
+                    finalCurrentNode.setStyle("-fx-border-color: grey; -fx-background-color: #FFFFFF");
+                });
+                currentNode.setOnMouseClicked(mouseEvent -> {
+                    flexItems.getChildren().clear();
+                    try {
+                        PartFullPageController.setPartForPage(currentPart);
+                        Node node = FXMLLoader.load(getClass().getResource("/com/example/javafxpartscatalog/partFullPage.fxml"));
+                        flexItems.getChildren().add(node);
+                    } catch (IOException e) {
+                        throw new RuntimeException(e);
+                    }
+                });
+                flexItems.getChildren().add(currentNode);
+            }
         }
 
     }

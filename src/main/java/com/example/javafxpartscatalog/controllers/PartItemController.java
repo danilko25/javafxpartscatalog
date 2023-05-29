@@ -22,9 +22,6 @@ public class PartItemController implements Initializable {
     private Text conditionOfPart;
 
     @FXML
-    private Text countOfParts;
-
-    @FXML
     private Text nameOfPart;
 
     @FXML
