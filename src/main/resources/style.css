@@ -36,3 +36,19 @@
     -fx-font-weight: bold;
     -fx-font-size: 13;
 }
+
+.list-view{
+    -fx-border-radius: 10;
+    -fx-background-radius: 10;
+    -fx-border-color: #58BBFF;
+    -fx-background-color: white;
+}
+
+.list-cell:filled:selected{
+    -fx-background-color: #58BBFF;
+}
+
+.list-cell:hover{
+    -fx-background-color: #c3e4fa;
+}
+
