@@ -1,6 +1,7 @@
 package com.example.javafxpartscatalog.controllers.admin;
 
 import com.example.javafxpartscatalog.dao.ManufacturerDAO;
+import com.example.javafxpartscatalog.dao.interfaces.IManufacturerDAO;
 import com.example.javafxpartscatalog.models.Manufacturer;
 import com.example.javafxpartscatalog.models.forJavaFxTableView.FXPart;
 import javafx.collections.FXCollections;
@@ -26,7 +27,7 @@ public class AllManufacturersController implements Initializable {
     @FXML
     private TableColumn<Manufacturer, String> name;
 
-    private final ManufacturerDAO manufacturerDAO = new ManufacturerDAO();
+    private final IManufacturerDAO manufacturerDAO = new ManufacturerDAO();
 
     private final ObservableList<Manufacturer> allManufacturers = FXCollections.observableList(manufacturerDAO.getAllManufacturers());
 

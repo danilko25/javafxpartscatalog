@@ -1,6 +1,7 @@
 package com.example.javafxpartscatalog.controllers.admin;
 
 import com.example.javafxpartscatalog.dao.ManufacturerDAO;
+import com.example.javafxpartscatalog.dao.interfaces.IManufacturerDAO;
 import com.example.javafxpartscatalog.models.Manufacturer;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -21,7 +22,7 @@ public class ManufacturerAddingController implements Initializable {
     @FXML
     private TextField name;
 
-    private final ManufacturerDAO manufacturerDAO = new ManufacturerDAO();
+    private final IManufacturerDAO manufacturerDAO = new ManufacturerDAO();
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {

@@ -1,6 +1,7 @@
 package com.example.javafxpartscatalog.controllers.admin;
 
 import com.example.javafxpartscatalog.dao.PartDAO;
+import com.example.javafxpartscatalog.dao.interfaces.IPartDAO;
 import com.example.javafxpartscatalog.models.forJavaFxTableView.FXPart;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -25,7 +26,7 @@ public class PartDeleting implements Initializable {
     @FXML
     private ListView<FXPart> listOfParts;
 
-    private final PartDAO partDAO = new PartDAO();
+    private final IPartDAO partDAO = new PartDAO();
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {

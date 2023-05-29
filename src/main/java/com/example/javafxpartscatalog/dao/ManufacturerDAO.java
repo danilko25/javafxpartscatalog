@@ -74,6 +74,20 @@ public class ManufacturerDAO implements IManufacturerDAO {
         }
     }
 
+    @Override
+    public Optional<Manufacturer> getManufacturerByName(String name) {
+        try (Connection connection = DataBaseConfig.getConnection(); PreparedStatement statement = connection.prepareStatement("SELECT * FROM manufacturer WHERE name = ?")){
+            statement.setString(1, name);
+            ResultSet rs = statement.executeQuery();
+            Manufacturer result;
+            if(rs.next()){
+                result = getManufacturerFromResultSet(rs);
+            } else result = null;
+            return Optional.ofNullable(result);
+        }catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
 
     private Manufacturer getManufacturerFromResultSet(ResultSet rs) throws SQLException {
         int id = rs.getInt(1);

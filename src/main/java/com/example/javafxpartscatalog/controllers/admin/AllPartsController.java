@@ -1,6 +1,7 @@
 package com.example.javafxpartscatalog.controllers.admin;
 
 import com.example.javafxpartscatalog.dao.PartDAO;
+import com.example.javafxpartscatalog.dao.interfaces.IPartDAO;
 import com.example.javafxpartscatalog.models.forJavaFxTableView.FXPart;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -37,7 +38,7 @@ public class AllPartsController implements Initializable {
     @FXML
     private TableColumn<FXPart, Integer> price;
 
-    private PartDAO partDAO = new PartDAO();
+    private IPartDAO partDAO = new PartDAO();
 
     ObservableList<FXPart> listOfFXParts = FXCollections.observableList(partDAO.getAllParts().stream().map(FXPart::new).collect(Collectors.toList()));
 

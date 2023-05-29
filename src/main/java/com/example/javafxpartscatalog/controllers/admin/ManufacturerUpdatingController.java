@@ -1,6 +1,7 @@
 package com.example.javafxpartscatalog.controllers.admin;
 
 import com.example.javafxpartscatalog.dao.ManufacturerDAO;
+import com.example.javafxpartscatalog.dao.interfaces.IManufacturerDAO;
 import com.example.javafxpartscatalog.models.Manufacturer;
 import com.example.javafxpartscatalog.models.forJavaFxTableView.FXPart;
 import javafx.beans.value.ChangeListener;
@@ -30,7 +31,7 @@ public class ManufacturerUpdatingController implements Initializable {
     @FXML
     private TextField name;
 
-    private final ManufacturerDAO manufacturerDAO = new ManufacturerDAO();
+    private final IManufacturerDAO manufacturerDAO = new ManufacturerDAO();
 
     private final String redStyle = "-fx-border-color: red";
 

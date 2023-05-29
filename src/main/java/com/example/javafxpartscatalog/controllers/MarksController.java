@@ -28,9 +28,13 @@ public class MarksController implements Initializable {
     @FXML
     private FlowPane flexItems = null;
 
+    private final IManufacturerDAO manufacturerDAO = new ManufacturerDAO();
+
+    private final IPartDAO partDAO = new PartDAO();
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        IManufacturerDAO manufacturerDAO = new ManufacturerDAO();
+
         List<Manufacturer> manufacturers = manufacturerDAO.getAllManufacturers();
         Node[] nodes = new Node[manufacturers.size()];
         String manufacturerName;
@@ -74,7 +78,7 @@ public class MarksController implements Initializable {
     }
 
     void getPartsListByMark(String mark) throws IOException {
-        IPartDAO partDAO = new PartDAO();
+
         flexItems.getChildren().clear();
         List<Part> partsByMark = partDAO.getPartsByManufacturerName(mark);
 

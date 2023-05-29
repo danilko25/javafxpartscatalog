@@ -16,5 +16,7 @@ public interface IManufacturerDAO {
 
     void deleteById(int id);
 
+    Optional<Manufacturer> getManufacturerByName(String name);
+
 
 }

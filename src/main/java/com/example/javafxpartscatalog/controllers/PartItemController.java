@@ -32,7 +32,7 @@ public class PartItemController implements Initializable {
 
     public static Part partItem;
 
-    IManufacturerDAO manufacturerDAO = new ManufacturerDAO();
+    private final IManufacturerDAO manufacturerDAO = new ManufacturerDAO();
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {

@@ -25,9 +25,6 @@ public class AdminRootController implements Initializable {
     private ToggleButton allParts;
 
     @FXML
-    private ToggleButton deleteManufacturer;
-
-    @FXML
     private ToggleButton deletePart;
 
     @FXML

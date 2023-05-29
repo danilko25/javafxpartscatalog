@@ -2,6 +2,8 @@ package com.example.javafxpartscatalog.controllers.admin;
 
 import com.example.javafxpartscatalog.dao.ManufacturerDAO;
 import com.example.javafxpartscatalog.dao.PartDAO;
+import com.example.javafxpartscatalog.dao.interfaces.IManufacturerDAO;
+import com.example.javafxpartscatalog.dao.interfaces.IPartDAO;
 import com.example.javafxpartscatalog.enums.PartCondition;
 import com.example.javafxpartscatalog.models.Manufacturer;
 import com.example.javafxpartscatalog.models.Part;
@@ -46,8 +48,8 @@ public class PartUpdatingController implements Initializable {
     @FXML
     private Text selectedManufacturerId;
 
-    private final PartDAO partDAO = new PartDAO();
-    private final ManufacturerDAO manufacturerDAO = new ManufacturerDAO();
+    private final IPartDAO partDAO = new PartDAO();
+    private final IManufacturerDAO manufacturerDAO = new ManufacturerDAO();
 
     private StringBuilder errorMessage;
     private Alert alert = new Alert(Alert.AlertType.NONE);

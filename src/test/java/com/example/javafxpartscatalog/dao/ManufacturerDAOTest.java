@@ -29,7 +29,7 @@ class ManufacturerDAOTest {
 
     @Test
     void addManufacturer() {
-        Manufacturer manufacturerForTest = new Manufacturer("Unique");
+        Manufacturer manufacturerForTest = new Manufacturer("AlfaRomeo");
         ManufacturerDAO dao = new ManufacturerDAO();
         List<Manufacturer> manufacturersBeforeAdd = dao.getAllManufacturers();
         dao.addManufacturer(manufacturerForTest);
