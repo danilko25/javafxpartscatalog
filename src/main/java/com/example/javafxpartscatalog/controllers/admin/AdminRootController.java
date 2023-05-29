@@ -34,5 +34,21 @@ public class AdminRootController implements Initializable {
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
+
+        allParts.setOnMouseClicked(mouseEvent -> {
+            try {
+                rootScene.setCenter(FXMLLoader.load(getClass().getResource("/com/example/javafxpartscatalog/admin_allParts_page.fxml")));
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+        });
+
+        partAdding.setOnMouseClicked(mouseEvent -> {
+            try {
+                rootScene.setCenter(FXMLLoader.load(getClass().getResource("/com/example/javafxpartscatalog/admin_partAdding.fxml")));
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+        });
     }
 }

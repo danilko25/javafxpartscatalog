@@ -13,3 +13,26 @@
 .toggle-button:selected{
     -fx-background-color:  #58BBFF;
 }
+
+.text-field{
+    -fx-border-radius: 10;
+    -fx-background-radius: 10;
+    -fx-border-color: #58BBFF;
+}
+
+.choice-box{
+    -fx-border-radius: 10;
+    -fx-background-radius: 10;
+    -fx-border-color: #58BBFF;
+    -fx-background-color: white;
+}
+
+.button{
+    -fx-pref-width: 130;
+    -fx-border-radius: 15;
+    -fx-background-radius: 15;
+    -fx-background-color: #58BBFF;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-font-size: 13;
+}
